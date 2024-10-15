@@ -1,0 +1,894 @@
+{
+    "Files": {
+        "/tmp/controller-gen-0.15.0-r0.apk748316151/.SIGN.RSA.melange.rsa.pub": {
+            "Path": "/tmp/controller-gen-0.15.0-r0.apk748316151/.SIGN.RSA.melange.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/controller-gen-0.15.0-r0.apk748316151/usr/bin/controller-gen": {
+            "Path": "/work/apk-files/controller-gen-0.15.0-r0.apk ∴ /usr/bin/controller-gen",
+            "SHA256": "b869332364e946f1fb81cc15604f76847544b29c50f5328ade77ebfa328dfe89",
+            "Size": 18236168,
+            "Meta": {
+                "compiler": "go",
+                "lang": "c++"
+            },
+            "Syscalls": [
+                "accept",
+                "chmod",
+                "close",
+                "execve",
+                "fchmodat",
+                "fchown",
+                "getpeername",
+                "getsockname",
+                "open",
+                "posix_spawn",
+                "readlink",
+                "recv",
+                "send",
+                "sendfile",
+                "sendmsg",
+                "sendto",
+                "sysctl",
+                "unlink",
+                "vfork"
+            ],
+            "Pledge": [
+                "exec",
+                "fattr",
+                "inet",
+                "rpath",
+                "sysctl",
+                "wpath"
+            ],
+            "Behaviors": [
+                {
+                    "Description": "Works with zip files",
+                    "MatchStrings": [
+                        "archive/zip"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/archives/zip.yara#zip",
+                    "ID": "archives/zip",
+                    "RuleName": "zip"
+                },
+                {
+                    "Description": "works with gzip files",
+                    "MatchStrings": [
+                        "gzip"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/compression/gzip.yara#gzip",
+                    "ReferenceURL": "https://www.gnu.org/software/gzip/",
+                    "ID": "compression/gzip",
+                    "RuleName": "gzip"
+                },
+                {
+                    "Description": "Supports AES (Advanced Encryption Standard)",
+                    "MatchStrings": [
+                        "crypto/aes"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/crypto/aes.yara#crypto_aes",
+                    "ID": "crypto/aes",
+                    "RuleName": "crypto_aes"
+                },
+                {
+                    "Description": "Uses the Go crypto/ecdsa library",
+                    "MatchStrings": [
+                        "crypto/ecdsa"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/crypto/ecdsa.yara#crypto_ecdsa",
+                    "ID": "crypto/ecdsa",
+                    "RuleName": "crypto_ecdsa"
+                },
+                {
+                    "Description": "Elliptic curve algorithm used by TLS and SSH",
+                    "MatchStrings": [
+                        "ed25519"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/crypto/ed25519.yara#ed25519",
+                    "ID": "crypto/ed25519",
+                    "RuleName": "ed25519"
+                },
+                {
+                    "Description": "tls",
+                    "MatchStrings": [
+                        "TLS13",
+                        "TLSVersion",
+                        "crypto/tls"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/crypto/tls.yara#tls",
+                    "ID": "crypto/tls",
+                    "RuleName": "tls"
+                },
+                {
+                    "Description": "Supports base64 encoded strings",
+                    "MatchStrings": [
+                        "base64"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/encoding/base64.yara#b64",
+                    "ID": "encoding/base64",
+                    "RuleName": "b64"
+                },
+                {
+                    "Description": "Decodes JSON messages",
+                    "MatchStrings": [
+                        "json.Unmarshal"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/encoding/json-decode.yara#jsondecode",
+                    "ID": "encoding/json/decode",
+                    "RuleName": "jsondecode"
+                },
+                {
+                    "Description": "encodes JSON",
+                    "MatchStrings": [
+                        "MarshalJSON"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/encoding/json-encode.yara#JSONEncode",
+                    "ID": "encoding/json/encode",
+                    "RuleName": "JSONEncode"
+                },
+                {
+                    "Description": "Supports JSON encoded objects",
+                    "MatchStrings": [
+                        "encoding/json"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/encoding/json.yara#encoding_json",
+                    "ID": "encoding/json",
+                    "RuleName": "encoding_json"
+                },
+                {
+                    "Description": "Looks up the USER name of the current user",
+                    "MatchStrings": [
+                        "USER",
+                        "getenv"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/env/USER.yara#USER",
+                    "ReferenceURL": "https://man.openbsd.org/login.1#ENVIRONMENT",
+                    "ID": "env/USER",
+                    "RuleName": "USER"
+                },
+                {
+                    "Description": "Sets HTTP content length to zero",
+                    "MatchStrings": [
+                        "Content-Length: 0"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/content-length-0.yara#content_length_0",
+                    "ID": "evasion/content/length/0",
+                    "RuleName": "content_length_0"
+                },
+                {
+                    "Description": "executes a command",
+                    "MatchStrings": [
+                        "runCmdContext"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/exec/cmd.yara#exec",
+                    "ID": "exec/cmd",
+                    "RuleName": "exec"
+                },
+                {
+                    "Description": "executes external programs",
+                    "MatchStrings": [
+                        ").CombinedOutput",
+                        "exec.(*Cmd).Run"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/exec/program.yara#exec_cmd_run",
+                    "ID": "exec/program",
+                    "RuleName": "exec_cmd_run"
+                },
+                {
+                    "Description": "Uses Go functions to list a directory",
+                    "MatchStrings": [
+                        ".ReadDir"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/directory-list.yara#GoReadDir",
+                    "ID": "fs/directory/list",
+                    "RuleName": "GoReadDir"
+                },
+                {
+                    "Description": "Uses libc functions to remove directories",
+                    "MatchStrings": [
+                        "Rmdir"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/directory-remove.yara#rmdir",
+                    "ID": "fs/directory/remove",
+                    "RuleName": "rmdir"
+                },
+                {
+                    "Description": "deletes files",
+                    "MatchStrings": [
+                        "unlinkat"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/file-delete.yara#unlink",
+                    "ReferenceURL": "https://man7.org/linux/man-pages/man2/unlink.2.html",
+                    "ID": "fs/file/delete",
+                    "RuleName": "unlink"
+                },
+                {
+                    "Description": "reads files",
+                    "MatchStrings": [
+                        "ReadFile",
+                        "os.(*File).Read"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/file-read.yara#go_file_read",
+                    "ID": "fs/file/read",
+                    "RuleName": "go_file_read"
+                },
+                {
+                    "Description": "read value of a symbolic link",
+                    "MatchStrings": [
+                        "readlinkat"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/link-read.yara#readlink",
+                    "ReferenceURL": "https://man7.org/linux/man-pages/man2/readlink.2.html",
+                    "ID": "fs/link/read",
+                    "RuleName": "readlink"
+                },
+                {
+                    "Description": "Changes file ownership",
+                    "MatchStrings": [
+                        "Chown"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/permission-chown.yara#Chown",
+                    "ID": "fs/permission/chown",
+                    "RuleName": "Chown"
+                },
+                {
+                    "Description": "modifies file permissions",
+                    "MatchStrings": [
+                        "Chmod",
+                        "chmod"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/permission-modify.yara#chmod",
+                    "ReferenceURL": "https://linux.die.net/man/1/chmod",
+                    "ID": "fs/permission/modify",
+                    "RuleName": "chmod"
+                },
+                {
+                    "Description": "Uses the MD5 signature format",
+                    "MatchStrings": [
+                        "md5:"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/hash/md5.yara#MD5",
+                    "ID": "hash/md5",
+                    "RuleName": "MD5"
+                },
+                {
+                    "Description": "gets number of processors",
+                    "MatchStrings": [
+                        "nproc"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/cpu-info.yara#processor_count",
+                    "ReferenceURL": "https://man7.org/linux/man-pages/man3/get_nprocs.3.html",
+                    "ID": "kernel/cpu/info",
+                    "RuleName": "processor_count"
+                },
+                {
+                    "Description": "get computer host name",
+                    "MatchStrings": [
+                        "/proc/sys/kernel/hostname"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/hostname-get.yara#gethostname",
+                    "ReferenceURL": "https://man7.org/linux/man-pages/man2/sethostname.2.html",
+                    "ID": "kernel/hostname/get",
+                    "RuleName": "gethostname"
+                },
+                {
+                    "Description": "communicate with kernel services",
+                    "MatchStrings": [
+                        "netlink"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/netlink.yara#netlink",
+                    "ID": "kernel/netlink",
+                    "RuleName": "netlink"
+                },
+                {
+                    "Description": "system identification",
+                    "MatchStrings": [
+                        "syscall.Uname"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/platform.yara#uname",
+                    "ReferenceURL": "https://man7.org/linux/man-pages/man1/uname.1.html",
+                    "ID": "kernel/platform",
+                    "RuleName": "uname"
+                },
+                {
+                    "Description": "Examines local DNS servers",
+                    "MatchStrings": [
+                        "CNAMEResource"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/dns-servers.yara#go_dns_refs",
+                    "ID": "net/dns/servers",
+                    "RuleName": "go_dns_refs"
+                },
+                {
+                    "Description": "Uses DNS TXT (text) records",
+                    "MatchStrings": [
+                        "TXT",
+                        "dns"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/dns-txt.yara#dns_txt",
+                    "ID": "net/dns/txt",
+                    "RuleName": "dns_txt"
+                },
+                {
+                    "Description": "Uses DNS (Domain Name Service)",
+                    "MatchStrings": [
+                        "CNAMEResource",
+                        "SetEDNS0",
+                        "dnsmessage"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/dns.yara#go_dns_refs",
+                    "ID": "net/dns",
+                    "RuleName": "go_dns_refs"
+                },
+                {
+                    "Description": "resolve network host name to IP address",
+                    "MatchStrings": [
+                        "cannot resolve"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/hostname-resolve.yara#cannot_resolve",
+                    "ID": "net/hostname/resolve",
+                    "RuleName": "cannot_resolve"
+                },
+                {
+                    "Description": "set HTTP response encoding format (example: gzip)",
+                    "MatchStrings": [
+                        "Accept-Encoding"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/http-accept-encoding.yara#content_type",
+                    "ReferenceURL": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding",
+                    "ID": "net/http/accept/encoding",
+                    "RuleName": "content_type"
+                },
+                {
+                    "Description": "makes HTTP requests with basic authentication",
+                    "MatchStrings": [
+                        "www-authenticate"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/http-auth.yara#http_auth",
+                    "ID": "net/http/auth",
+                    "RuleName": "http_auth"
+                },
+                {
+                    "Description": "access HTTP resources using cookies",
+                    "MatchStrings": [
+                        "Cookie",
+                        "HTTP"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/http-cookies.yara#http_cookie",
+                    "ReferenceURL": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies",
+                    "ID": "net/http/cookies",
+                    "RuleName": "http_cookie"
+                },
+                {
+                    "Description": "upload content via HTTP form",
+                    "MatchStrings": [
+                        "POST",
+                        "application/json",
+                        "application/x-www-form-urlencoded"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/http-form-upload.yara#http_form_upload",
+                    "ID": "net/http/form/upload",
+                    "RuleName": "http_form_upload"
+                },
+                {
+                    "Description": "submits content to websites",
+                    "MatchStrings": [
+                        "Content-Type",
+                        "HTTP",
+                        "POST",
+                        "http"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/http-post.yara#http_post",
+                    "ID": "net/http/post",
+                    "RuleName": "http_post"
+                },
+                {
+                    "Description": "makes HTTP requests",
+                    "MatchStrings": [
+                        "HTTP/1.",
+                        "Referer",
+                        "User-Agent"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/http-request.yara#http_request",
+                    "ID": "net/http/request",
+                    "RuleName": "http_request"
+                },
+                {
+                    "Description": "Uses the HTTP/2 protocol",
+                    "MatchStrings": [
+                        "HTTP/2"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/http2.yara#http2",
+                    "ID": "net/http2",
+                    "RuleName": "http2"
+                },
+                {
+                    "Description": "use HTTP proxy that requires authentication",
+                    "MatchStrings": [
+                        "Proxy-Authorization"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/http_proxy.yara#proxy_auth",
+                    "ReferenceURL": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Proxy-Authorization",
+                    "ID": "net/http_proxy",
+                    "RuleName": "proxy_auth"
+                },
+                {
+                    "Description": "parses IP address (IPv4 or IPv6)",
+                    "MatchStrings": [
+                        "IsLinkLocalUnicast",
+                        "IsSingleIP"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/ip-parse.yara#ip_go",
+                    "ID": "net/ip/parse",
+                    "RuleName": "ip_go"
+                },
+                {
+                    "Description": "transfer data between file descriptors",
+                    "MatchStrings": [
+                        "sendfile",
+                        "syscall.Sendfile"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/sendfile.yara#sendfile",
+                    "ReferenceURL": "https://man7.org/linux/man-pages/man2/sendfile.2.html",
+                    "ID": "net/sendfile",
+                    "RuleName": "sendfile"
+                },
+                {
+                    "Description": "listen on a socket",
+                    "MatchStrings": [
+                        "accept",
+                        "socket"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/socket-listen.yara#listen",
+                    "ID": "net/socket/listen",
+                    "RuleName": "listen"
+                },
+                {
+                    "Description": "get local address of connected socket",
+                    "MatchStrings": [
+                        "getsockname"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/socket-local-address.yara#getsockname",
+                    "ReferenceURL": "https://man7.org/linux/man-pages/man2/getsockname.2.html",
+                    "ID": "net/socket/local/address",
+                    "RuleName": "getsockname"
+                },
+                {
+                    "Description": "get peer address of connected socket",
+                    "MatchStrings": [
+                        "getpeername"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/socket-peer-address.yara#getpeername",
+                    "ReferenceURL": "https://man7.org/linux/man-pages/man2/getpeername.2.html",
+                    "ID": "net/socket/peer/address",
+                    "RuleName": "getpeername"
+                },
+                {
+                    "Description": "receive a message from a socket",
+                    "MatchStrings": [
+                        "recvfrom",
+                        "recvmsg"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/socket-receive.yara#recvmsg",
+                    "ReferenceURL": "https://linux.die.net/man/2/recvmsg",
+                    "ID": "net/socket/receive",
+                    "RuleName": "recvmsg"
+                },
+                {
+                    "Description": "send a message to a socket",
+                    "MatchStrings": [
+                        "sendmsg",
+                        "sendto"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/socket-send.yara#sendmsg",
+                    "ReferenceURL": "https://linux.die.net/man/2/sendmsg",
+                    "ID": "net/socket/send",
+                    "RuleName": "sendmsg"
+                },
+                {
+                    "Description": "Listens for UDP responses",
+                    "MatchStrings": [
+                        "ReadFromUDP"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/udp-receive.yara#udp_listen",
+                    "ID": "net/udp/receive",
+                    "RuleName": "udp_listen"
+                },
+                {
+                    "Description": "Sends UDP packets",
+                    "MatchStrings": [
+                        "DialUDP",
+                        "WriteMsgUDP"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/udp-send.yara#udp_send",
+                    "ID": "net/udp/send",
+                    "RuleName": "udp_send"
+                },
+                {
+                    "Description": "encodes URL, likely to pass GET variables",
+                    "MatchStrings": [
+                        "urlencode"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/url-encode.yara#url_encode",
+                    "ID": "net/url/encode",
+                    "RuleName": "url_encode"
+                },
+                {
+                    "Description": "requests resources via URL",
+                    "MatchStrings": [
+                        "http.request",
+                        "net/url"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/url-request.yara#requests_urls",
+                    "ID": "net/url/request",
+                    "RuleName": "requests_urls"
+                },
+                {
+                    "Description": "Handles URL strings",
+                    "MatchStrings": [
+                        "RequestURI"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/url.yara#url_handle",
+                    "ID": "net/url",
+                    "RuleName": "url_handle"
+                },
+                {
+                    "Description": "ps exec",
+                    "MatchStrings": [
+                        "#!",
+                        "ps ax"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/process/list.yara#ps_exec",
+                    "ID": "process/list",
+                    "RuleName": "ps_exec"
+                },
+                {
+                    "Description": "mentions an IP and port",
+                    "MatchStrings": [
+                        "IP",
+                        "hasPort",
+                        "lIp",
+                        "lookupPort",
+                        "oIp",
+                        "parsePort"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/ip_port.yara#ip_and_port",
+                    "ID": "ref/ip_port",
+                    "RuleName": "ip_and_port"
+                },
+                {
+                    "Description": "references /etc/hosts",
+                    "MatchStrings": [
+                        "/etc/hosts"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/etc-hosts.yara#etc_hosts",
+                    "ID": "ref/path/etc/hosts",
+                    "RuleName": "etc_hosts"
+                },
+                {
+                    "Description": "accesses DNS resolver configuration",
+                    "MatchStrings": [
+                        "/etc/resolv.conf"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/etc-resolv.conf.yara#etc_resolv_conf",
+                    "ID": "ref/path/etc/resolv.conf",
+                    "RuleName": "etc_resolv_conf"
+                },
+                {
+                    "Description": "path reference within /etc",
+                    "MatchStrings": [
+                        "/etc/apache/mime.typesgzip",
+                        "/etc/bash",
+                        "/etc/group",
+                        "/etc/hostsgetsockoptnetlinkrib",
+                        "/etc/httpd/conf/mime.typesid",
+                        "/etc/mime.types",
+                        "/etc/nsswitch.confinvalid",
+                        "/etc/passwd",
+                        "/etc/pki/ca-trust/extracted/pem/tls-c",
+                        "/etc/pki/tls/cacert.peminvalid",
+                        "/etc/pki/tls/certs/ca-bundle.crtx",
+                        "/etc/pki/tls/certsunsupported",
+                        "/etc/protocolsunknown",
+                        "/etc/resolv.confnon-",
+                        "/etc/servicesunexpected",
+                        "/etc/ssl/ca-bundle.pemx",
+                        "/etc/ssl/cert.peminvalid",
+                        "/etc/ssl/certs/ca-certificates.crtadd",
+                        "/etc/ssl/certsdata",
+                        "/etc/zoneinfoparsing"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/etc.yara#etc_path",
+                    "ID": "ref/path/etc",
+                    "RuleName": "etc_path"
+                },
+                {
+                    "Description": "path reference within ~/.config",
+                    "MatchStrings": [
+                        "~/.config/fish/completions/"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/home-config.yara#home_config_path",
+                    "ID": "ref/path/home/config",
+                    "RuleName": "home_config_path"
+                },
+                {
+                    "Description": "references and possibly executes relative path",
+                    "MatchStrings": [
+                        "./apis",
+                        "./manifests",
+                        "./pkg"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/relative.yara#relative_path_val",
+                    "ID": "ref/path/relative",
+                    "RuleName": "relative_path_val"
+                },
+                {
+                    "Description": "path reference within /tmp",
+                    "MatchStrings": [
+                        "/tmp/crds"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/tmp.yara#tmp_path",
+                    "ID": "ref/path/tmp",
+                    "RuleName": "tmp_path"
+                },
+                {
+                    "Description": "contains embedded HTTPS URLs",
+                    "MatchStrings": [
+                        "https://book.kubebuilder.io/cronjob-tutorial/gvks.html.Standard",
+                        "https://git.k8s.io/community/contributors/devel/sig-architecture/api-conv",
+                        "https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md",
+                        "https://github.com/google/cel-spec",
+                        "https://github.com/spf13/cobra/issues/1279",
+                        "https://github.com/spf13/cobra/issues/1508",
+                        "https://golang.org/issue/38990.",
+                        "https://golang.org/pkg/unicode/",
+                        "https://kubernetes.io/docs/concepts/architecture/garbage-collection/",
+                        "https://kubernetes.io/docs/concepts/overview/working-with-objects/annotat",
+                        "https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/",
+                        "https://kubernetes.io/docs/concepts/overview/working-with-objects/labelsT",
+                        "https://kubernetes.io/docs/concepts/overview/working-with-objects/namespa",
+                        "https://kubernetes.io/docs/reference/using-api/api-concepts/",
+                        "https://kubernetes.io/docs/reference/using-api/cel/",
+                        "https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custo",
+                        "https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/site/url.yara#https_url",
+                    "ID": "ref/site/url",
+                    "RuleName": "https_url"
+                },
+                {
+                    "Description": "gets very excited",
+                    "MatchStrings": [
+                        "does not work!!!",
+                        "ontain alphanumerical characters onlyexplicitly tagged !!"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/words/exclamation.yara#exclamations",
+                    "ID": "ref/words/exclamation",
+                    "RuleName": "exclamations"
+                },
+                {
+                    "Description": "references a 'password'",
+                    "MatchStrings": [
+                        "UserPassword",
+                        "passwordSet",
+                        "passwordunexpected value",
+                        "socksUsernamePassword"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/words/password.yara#password",
+                    "ID": "ref/words/password",
+                    "RuleName": "password"
+                },
+                {
+                    "Description": "references a 'plugin'",
+                    "MatchStrings": [
+                        "completely disabling the plugin",
+                        "in mutating admission plugins are re",
+                        "observe changes made by other plugins",
+                        "pluginpath"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/words/plugin.yara#plugin",
+                    "ID": "ref/words/plugin",
+                    "RuleName": "plugin"
+                },
+                {
+                    "Description": "references a 'server address', possible C2 client",
+                    "MatchStrings": [
+                        "jsonACRONYMS_PATHpreconditionsserverAddressincludeObjectlabelSelectorfie",
+                        "storageversionserverAddressByClientCIDRsdeletionGracePer"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/words/server_address.yara#server_address",
+                    "ID": "ref/words/server_address",
+                    "RuleName": "server_address"
+                },
+                {
+                    "Description": "References private keys",
+                    "MatchStrings": [
+                        "privateKey"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/secrets/private_key.yara#private_key_val",
+                    "ID": "secrets/private_key",
+                    "RuleName": "private_key_val"
+                },
+                {
+                    "Description": "references 'C2 related tools' tool",
+                    "MatchStrings": [
+                        "runShellCode",
+                        "runShellcode"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/yara/threat_hunting/all.yara#C2_related_tools_offensive_tool_keyword",
+                    "ReferenceURL": "https://github.com/mthcht/ThreatHunting-Keywords",
+                    "RuleAuthor": "mthcht",
+                    "ID": "3P/threat_hunting/c2/related/tools",
+                    "RuleName": "C2_related_tools_offensive_tool_keyword"
+                }
+            ],
+            "RiskScore": 2,
+            "RiskLevel": "MEDIUM"
+        },
+        "/tmp/controller-gen-0.15.0-r0.apk748316151/var/lib/db/sbom/controller-gen-0.15.0-r0.spdx.json": {
+            "Path": "/work/apk-files/controller-gen-0.15.0-r0.apk ∴ /var/lib/db/sbom/controller-gen-0.15.0-r0.spdx.json",
+            "SHA256": "a6d7d6df13d48fd728773ad9620aac9580229a7ef1655de3d187ce438477c150",
+            "Size": 1599,
+            "Behaviors": [
+                {
+                    "Description": "download files",
+                    "MatchStrings": [
+                        "downloadLocation"
+                    ],
+                    "RiskScore": 2,
+                    "RiskLevel": "MEDIUM",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/download.yara#download",
+                    "ID": "net/download",
+                    "RuleName": "download"
+                },
+                {
+                    "Description": "contains embedded HTTPS URLs",
+                    "MatchStrings": [
+                        "https://spdx.org/spdxdocs/chainguard/melange/898597f7c17b88b509eec4070894"
+                    ],
+                    "RiskScore": 1,
+                    "RiskLevel": "LOW",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/site/url.yara#https_url",
+                    "ID": "ref/site/url",
+                    "RuleName": "https_url"
+                }
+            ],
+            "RiskScore": 2,
+            "RiskLevel": "MEDIUM"
+        }
+    },
+    "Filter": "false_positive,ignore"
+}
