@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Array of folder names
-# folders=("0_controller-gen" "1_gobump" "2_logstash-exporter" "3_prometheus-beat-exporter" "4_cosign" "5_step" "6_go-swagger" "7_grafana-agent-operator" "8_terragrunt" "9_litestream")
-folders=("0_controller-gen")
+folders=("1_gobump" "2_logstash-exporter" "3_prometheus-beat-exporter" "4_cosign" "5_step" "6_go-swagger" "7_grafana-agent-operator" "8_terragrunt" "9_litestream")
+# folders=("0_controller-gen")
 
 # Get your username
 username=$(whoami)

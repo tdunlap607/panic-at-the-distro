@@ -1,6 +1,11 @@
 **/packages/x86_64/
 
+**/malcontent-scan
+
 **/apk-files/
+
+*.rsa
+*.rsa.pub 
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
